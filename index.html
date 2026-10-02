@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Университет Адама — Москва, 1971</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#15265F;
+  --navy-deep:#0D1845;
+  --navy-lift:#2A4AA8;
+  --crimson:#BC1634;
+  --crimson-lift:#D32A47;
+  --gold:#DDB52F;
+  --gold-soft:#EDD27C;
+  --paper:#FCFBF7;
+  --paper-2:#F4F1E8;
+  --rule:#DAD4C4;
+  --text:#1A2030;
+  --text-soft:#4C556B;
+  --on-navy:#EFEDE6;
+  --on-navy-soft:#D2D9F0;
+  --map-block:#DCD7C9;
+  --map-road:#F4F2EC;
+
+  --display:'Oswald',Impact,'Arial Narrow',sans-serif;
+  --body:'PT Serif',Georgia,'Times New Roman',serif;
+  --ui:'PT Sans','Segoe UI',Arial,sans-serif;
+
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+:root:not([data-theme="light"]){
+  @media (prefers-color-scheme:dark){
+    --paper:#121A29; --paper-2:#1A2436; --rule:#35415A;
+    --text:#E6E4DC; --text-soft:#A6B0C4;
+    --map-block:#1D2838; --map-road:#2B3A50;
+    --navy-lift:#7F95DB;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#121A29; --paper-2:#1A2436; --rule:#35415A;
+  --text:#E6E4DC; --text-soft:#A6B0C4;
+  --map-block:#1D2838; --map-road:#2B3A50;
+  --navy-lift:#7F95DB;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px);scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--paper);color:var(--text);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%}
+a{color:var(--navy-lift)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.wrap{width:min(1120px,100% - 3rem);margin-inline:auto}
+@media(max-width:640px){.wrap{width:min(1120px,100% - 1.75rem)}}
+
+
+.masthead{color:var(--on-navy);position:relative;
+  /* Background photo: keep school-background.png in the same folder as index.html. The navy layer keeps the text readable;
+     if the file is missing, the plain navy colour shows instead. */
+  background:
+    linear-gradient(180deg,rgba(13,24,69,.88) 0%,rgba(13,24,69,.66) 45%,rgba(13,24,69,.86) 100%),
+    url("school-background.png") center 35%/cover no-repeat,
+    var(--navy-deep)}
+.masthead::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;
+  background:linear-gradient(to right,var(--crimson) 0 33.3%,var(--gold) 33.3% 66.6%,var(--navy-lift) 66.6% 100%)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.6rem 0;
+  border-bottom:1px solid rgba(201,162,39,.3);font-family:var(--ui);font-size:13.5px;flex-wrap:wrap}
+.bar nav{display:flex;gap:1.3rem;flex-wrap:wrap}
+@media(min-width:1240px){
+  .bar{flex-wrap:nowrap;width:min(1360px,100vw - 3rem);margin-left:50%;transform:translateX(-50%);font-size:13px}
+  .bar nav{flex-wrap:nowrap;gap:1rem}
+  .bar nav a,.bar-right a,.bar-right button{white-space:nowrap}
+  .bar-right{flex-wrap:nowrap;gap:.6rem;flex:0 0 auto}
+  .enrol-btn,.verify-btn,.signin{padding:.4rem .75rem}
+}
+.bar nav a{color:var(--on-navy-soft);text-decoration:none;padding:.15rem 0;border-bottom:1px solid transparent}
+.bar nav a:hover{color:var(--on-navy);border-bottom-color:var(--gold)}
+.bar-right{display:flex;align-items:center;gap:.8rem}
+.lang{display:flex;border:1px solid rgba(201,162,39,.55)}
+.lang button{font-family:var(--ui);font-size:12.5px;background:none;border:0;color:var(--on-navy-soft);padding:.28rem .6rem;cursor:pointer;letter-spacing:.06em}
+.lang button[aria-pressed="true"]{background:var(--gold);color:#241B05;font-weight:700}
+.signin{font-family:var(--ui);font-size:13px;font-weight:700;letter-spacing:.04em;text-decoration:none;
+  background:var(--crimson);color:#fff;padding:.42rem 1rem;display:inline-block}
+.enrol-btn{font-family:var(--ui);font-size:13px;font-weight:700;letter-spacing:.04em;text-decoration:none;background:var(--gold);color:#241B05;border:1px solid var(--gold);padding:.4rem .85rem;white-space:nowrap}
+.enrol-btn:hover{background:var(--gold-soft);border-color:var(--gold-soft)}
+.verify-btn{font-family:var(--ui);font-size:13px;font-weight:700;letter-spacing:.04em;text-decoration:none;color:var(--gold-soft);border:1px solid var(--gold);padding:.4rem .85rem;white-space:nowrap}
+.verify-btn:hover{background:var(--gold);color:#241B05}
+.signin:hover{background:var(--crimson-lift)}
+
+.plaque{display:grid;grid-template-columns:154px 1fr;gap:2.4rem;align-items:center;padding:3rem 0 3.4rem}
+.plaque h1{font-family:var(--display);font-weight:600;letter-spacing:.055em;font-size:clamp(1.9rem,5.2vw,3.35rem);line-height:1.04;margin:0;color:#fff}
+.plaque .est{font-family:var(--ui);font-size:13px;letter-spacing:.2em;color:var(--gold-soft);margin:0 0 .8rem}
+.plaque .lede{font-size:1.03rem;color:var(--on-navy-soft);max-width:46ch;margin:1.1rem 0 0;border-left:2px solid var(--gold);padding-left:1rem}
+@media(max-width:720px){.plaque{grid-template-columns:1fr;gap:1.5rem;padding:2rem 0 2.4rem}.plaque .crest{width:120px}}
+
+/* ---------- PHOTO FRAMES ----------
+   Keep the PNG files in the same folder as this HTML file in your GitHub repo.
+   File names are case-sensitive on GitHub, so keep them lowercase exactly as written here:
+   school-background.png  logo.png  footer.png  main-building.png  cyber-lab.png  library-reading-room.png  lecture-hall.png
+   If you host the images elsewhere, replace NAME.png with the full URL, e.g.
+   https://raw.githubusercontent.com/USER/REPO/main/NAME.png            */
+.band{margin:0;background:var(--navy-deep)}
+.band img{display:block;width:100%;height:clamp(220px,34vw,420px);object-fit:cover}
+.band figcaption{font-family:var(--ui);font-size:12.5px;color:var(--on-navy-soft);padding:.6rem 0}
+.frame{background:none;border:0;padding:0}
+.frame img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;background:var(--rule)}
+.frame figcaption{font-family:var(--ui);font-size:12.5px;color:var(--text-soft);padding-top:.6rem}
+/* ---- School loader (open book with flipping pages) ---- */
+.sch-loader{display:inline-flex;align-items:center;justify-content:center;font-size:14px;vertical-align:middle}
+.sch-loader.lg{font-size:22px}.sch-loader.sm{font-size:9px}
+.sch-loader .bk{position:relative;display:block;width:4.4em;height:3em;perspective:30em;font-style:normal}
+.sch-loader .bk::before,.sch-loader .bk::after{content:"";position:absolute;top:0;bottom:0;width:50%;background:#fff;border:.16em solid var(--gold);box-shadow:inset 0 0 .5em rgba(21,38,95,.18)}
+.sch-loader .bk::before{left:0;border-radius:.3em 0 0 .3em;border-right-width:.08em}
+.sch-loader .bk::after{right:0;border-radius:0 .3em .3em 0;border-left-width:.08em}
+.sch-loader .pg{position:absolute;top:0;bottom:0;left:50%;width:50%;background:#fff;border:.16em solid var(--gold);border-left:0;border-radius:0 .3em .3em 0;transform-origin:left center;backface-visibility:visible;
+  background-image:repeating-linear-gradient(to bottom,transparent 0 .42em,rgba(42,74,168,.35) .42em .5em);background-clip:padding-box;
+  animation:schFlip 2.1s ease-in-out infinite;opacity:0}
+.sch-loader .pg:nth-child(2){animation-delay:.3s}
+.sch-loader .pg:nth-child(3){animation-delay:.6s}
+@keyframes schFlip{0%{transform:rotateY(0);opacity:0}6%{opacity:1}45%{transform:rotateY(-178deg);opacity:1}80%{transform:rotateY(-178deg);opacity:1}100%{transform:rotateY(-178deg);opacity:0}}
+#preloader{position:fixed;inset:0;z-index:9999;background:var(--navy-deep);color:var(--on-navy);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1.1rem;text-align:center;font-family:var(--ui);
+  transition:opacity .45s ease,visibility .45s ease;animation:plFallback .45s ease 8s forwards}
+#preloader.done{opacity:0;visibility:hidden}
+#preloader .pl-t{margin:0;font-family:var(--display);letter-spacing:.2em;font-size:15px;color:var(--gold-soft)}
+#preloader .pl-s{margin:0;font-size:12.5px;letter-spacing:.08em;color:var(--on-navy-soft)}
+@keyframes plFallback{to{opacity:0;visibility:hidden}}
+.frame{position:relative;margin:0}
+.frame .fr-load{position:absolute;top:0;left:0;right:0;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;background:var(--rule);pointer-events:none}
+.map{position:relative}
+.map .map-load{position:absolute;inset:.7rem;display:flex;align-items:center;justify-content:center;background:var(--paper-2);pointer-events:none;z-index:2}
+.result .sch-loader{margin-right:.6rem}
+.steps{list-style:none;margin:2rem 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1.4rem;counter-reset:st}
+.steps li{position:relative;counter-increment:st;background:var(--paper-2);border:1px solid var(--rule);border-top:3px solid var(--navy);padding:3.1rem 1.1rem 1.2rem}
+.steps li::before{content:counter(st);position:absolute;top:-1.1rem;left:1.1rem;width:2.2rem;height:2.2rem;border-radius:50%;background:var(--crimson);color:#fff;font-family:var(--display);font-size:1.1rem;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 4px var(--paper)}
+.steps h3{margin:0 0 .4rem;font-size:1.05rem}
+.steps p{margin:0;font-size:.92rem;color:var(--text-soft)}
+.steps .when{display:inline-block;margin-bottom:.5rem;font-family:var(--ui);font-size:12.5px;font-weight:700;letter-spacing:.04em;color:var(--navy);background:var(--gold-soft);padding:.12rem .5rem}
+.apply-cta{display:flex;flex-wrap:wrap;gap:.6rem 1.6rem;align-items:center;margin-top:1.8rem}
+.apply-cta .maplink{margin-top:0}
+.apply-cta span{font-family:var(--ui);font-size:13.5px;color:var(--text-soft)}
+.carousel{position:relative;margin-top:1rem;padding:2.4rem 0 1.2rem;perspective:1500px;overflow:hidden;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.car-track{position:relative;height:260px;transform-style:preserve-3d;cursor:grab}
+.car-track.drag{cursor:grabbing}
+.car-track .frame{position:absolute;top:0;left:50%;margin:0;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.car-track .frame img{pointer-events:none;-webkit-user-drag:none;box-shadow:0 10px 30px rgba(13,24,69,.28)}
+.car-btn{position:absolute;z-index:5;top:calc(50% - 1.2rem);width:2.4rem;height:2.4rem;border-radius:50%;border:1px solid var(--rule);background:rgba(255,255,255,.92);color:var(--text-soft);font-size:1.5rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0 0 .15rem}
+.car-btn:hover{color:var(--crimson);border-color:var(--crimson)}
+.car-prev{left:.6rem}.car-next{right:.6rem}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.3rem}
+
+section{padding:3.4rem 0;border-bottom:1px solid var(--rule)}
+.eyebrow{font-family:var(--ui);font-size:12.5px;letter-spacing:.17em;color:var(--crimson);margin:0 0 .5rem}
+h2{font-family:var(--display);font-weight:500;letter-spacing:.03em;font-size:clamp(1.45rem,3.4vw,2.1rem);line-height:1.15;margin:0 0 1.4rem;color:var(--text)}
+h3{font-family:var(--display);font-weight:500;letter-spacing:.02em;font-size:1.22rem;margin:0 0 .4rem}
+p{max-width:72ch}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+@media(max-width:820px){.split{grid-template-columns:1fr;gap:2rem}}
+
+.facts{margin:0;font-family:var(--ui);font-size:15px}
+.facts div{display:flex;justify-content:space-between;gap:1rem;padding:.7rem 0;border-bottom:1px solid var(--rule)}
+.facts dt{color:var(--text-soft)}
+.facts dd{margin:0;font-weight:700;text-align:right}
+
+.prog{border-top:3px solid var(--navy)}
+.prog-row{display:grid;grid-template-columns:220px 1fr 300px;gap:1.6rem;align-items:start;padding:1.4rem 0;border-bottom:1px solid var(--rule)}
+.prog-row:has(.frame[hidden]){grid-template-columns:1fr 300px}
+.prog-row .frame figcaption{display:none}
+.code{font-family:var(--ui);font-size:13.5px;color:var(--crimson);letter-spacing:.05em;margin-bottom:.15rem}
+.prog-row p{margin:.3rem 0 0;font-size:.94rem;color:var(--text-soft);max-width:54ch}
+.levels{display:flex;flex-wrap:wrap;gap:.45rem;padding-top:.2rem}
+.levels span{font-family:var(--ui);font-size:12.5px;border:1px solid var(--rule);padding:.26rem .6rem;color:var(--text-soft);white-space:nowrap}
+@media(max-width:900px){.prog-row,.prog-row:has(.frame[hidden]){grid-template-columns:1fr;gap:1rem}.prog-row .frame{max-width:420px}}
+
+.panel{background:var(--paper-2);border:1px solid var(--rule);padding:1.7rem}
+.panel h3{margin-bottom:.8rem}
+label{display:block;font-family:var(--ui);font-size:13px;color:var(--text-soft);margin:.9rem 0 .3rem}
+input[type=text]{width:100%;font-family:var(--ui);font-size:15px;padding:.62rem .7rem;border:1px solid var(--rule);background:var(--paper);color:var(--text);border-radius:0}
+button.act{font-family:var(--ui);font-size:14px;font-weight:700;letter-spacing:.04em;background:var(--navy);color:#fff;border:0;padding:.7rem 1.4rem;margin-top:1.1rem;cursor:pointer}
+button.act:hover{background:var(--navy-lift);filter:brightness(1.12)}
+.result{margin-top:1.1rem;padding:.85rem 1rem;border-left:3px solid var(--gold);background:var(--paper);font-family:var(--ui);font-size:13.5px;color:var(--text-soft)}
+.result[hidden]{display:none}
+
+.contacts{display:grid;grid-template-columns:repeat(auto-fill,minmax(248px,1fr));gap:0 2rem}
+.contacts div{padding:.75rem 0;border-bottom:1px solid var(--rule)}
+.contacts dt{font-family:var(--ui);font-size:12.5px;color:var(--text-soft)}
+.contacts dd{margin:.15rem 0 0;font-family:var(--ui);font-size:14.5px}
+.contacts a{color:var(--navy-lift);text-decoration:none}
+.contacts a:hover{text-decoration:underline}
+
+.loc{display:grid;grid-template-columns:300px 1fr;gap:2.4rem;align-items:start}
+@media(max-width:820px){.loc{grid-template-columns:1fr;gap:1.6rem}}
+.addr{font-family:var(--ui);font-size:16px;line-height:1.8;margin:0;padding-left:1rem;border-left:3px solid var(--crimson)}
+.metro{margin:1.4rem 0 0;font-family:var(--ui);font-size:14px}
+.metro div{display:flex;align-items:center;gap:.55rem;padding:.42rem 0;border-bottom:1px solid var(--rule)}
+.metro dt{width:13px;height:13px;border-radius:50%;flex:0 0 auto}
+.metro dd{margin:0;color:var(--text-soft)}
+.maplink{display:inline-block;margin-top:1.5rem;font-family:var(--ui);font-size:13.5px;font-weight:700;
+  letter-spacing:.04em;color:var(--navy);text-decoration:none;border-bottom:2px solid var(--gold);padding-bottom:.18rem}
+.maplink:hover{color:var(--crimson);border-bottom-color:var(--crimson)}
+.logo-slot{position:relative;width:154px;aspect-ratio:4/5;display:grid;place-items:center;
+  border:0}
+.logo-slot img{position:relative;z-index:1;max-width:100%;max-height:100%;display:block}
+.slot-hint{position:absolute;z-index:0;font-family:var(--ui);font-size:11px;letter-spacing:.12em;color:rgba(227,200,104,.5)}
+@media(max-width:720px){.logo-slot{width:120px}}
+
+.viewtabs{display:flex;margin-bottom:.7rem}
+.viewtabs button{font-family:var(--ui);font-size:12.5px;letter-spacing:.05em;padding:.42rem 1rem;cursor:pointer;
+  background:var(--paper);border:1px solid var(--rule);color:var(--text-soft)}
+.viewtabs button+button{border-left:0}
+.viewtabs button[aria-pressed="true"]{background:var(--navy);color:#fff;border-color:var(--navy)}
+.map{margin:0;background:var(--paper-2);border:1px solid var(--rule);padding:.7rem}
+.map iframe{display:block;width:100%;height:420px;border:0}
+
+footer{background:var(--navy-deep);color:var(--on-navy-soft);padding:2.3rem 0;font-family:var(--ui);font-size:13px}
+footer .wrap{display:grid;grid-template-columns:1fr 1fr auto;gap:1.6rem;align-items:center}
+footer .members{margin:0;justify-self:end}
+footer .members img{display:block;height:96px;width:auto;max-width:100%;object-fit:contain}
+footer strong{color:var(--on-navy);font-weight:400;font-family:var(--display);letter-spacing:.05em;font-size:1rem}
+@media(max-width:700px){footer .wrap{grid-template-columns:1fr}footer .members{justify-self:start}}
+
+/* FAQ */
+.faq{border-top:3px solid var(--navy);max-width:860px}
+.faq details{border-bottom:1px solid var(--rule)}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.05rem 0;font-family:var(--display);font-weight:500;font-size:1.12rem;letter-spacing:.02em}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--ui);font-size:1.5rem;line-height:1;color:var(--crimson);flex:0 0 auto}
+.faq details[open] summary::after{content:"\2212"}
+.faq details p{margin:0 0 1.2rem;color:var(--text-soft);font-size:.98rem}
+
+/* Verify dialog */
+dialog.vd{border:0;padding:0;background:var(--paper);color:var(--text);width:min(520px,calc(100% - 2rem));box-shadow:0 24px 70px rgba(13,24,69,.4);border-top:4px solid var(--gold)}
+dialog.vd::backdrop{background:rgba(13,24,69,.6)}
+.vd-in{padding:1.6rem 1.7rem 1.8rem;position:relative}
+.vd h3{font-size:1.5rem;margin:0 0 1rem;padding-right:2rem}
+.vd-x{position:absolute;top:.7rem;right:.8rem;background:none;border:0;font-size:1.8rem;line-height:1;cursor:pointer;color:var(--text-soft)}
+.chain{display:flex;gap:.9rem;align-items:flex-start;padding:.9rem 1rem;margin-bottom:.4rem;background:linear-gradient(135deg,var(--navy) 0%,var(--navy-lift) 100%);color:#fff;border-left:4px solid var(--gold)}
+.chain svg{flex:0 0 auto;margin-top:.15rem}
+.chain strong{display:block;font-family:var(--ui);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:.25rem}
+.chain span{font-family:var(--ui);font-size:13.5px;line-height:1.5;color:#fff}
+.vd input[type=text]:focus{outline:2px solid var(--gold);outline-offset:1px}
+.vd .act{width:100%}
+.result.ok{border-left-color:#2E7D32}
+.result.bad{border-left-color:var(--crimson)}
+.result strong{display:block;color:var(--text);margin-bottom:.3rem}
+.vd-note{font-family:var(--ui);font-size:12px;color:var(--text-soft);margin:.9rem 0 0}
+
+.faq-g{font-family:var(--ui);font-size:12.5px;font-weight:700;letter-spacing:.17em;text-transform:uppercase;color:var(--crimson);margin:2rem 0 .3rem}
+.faq-g:first-child{margin-top:1.1rem}
+.faq details[open] summary{color:var(--navy-lift)}
+.search-btn{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;background:none;border:1px solid var(--gold);cursor:pointer;color:var(--gold-soft);padding:0}
+.search-btn:hover{background:var(--gold);color:#241B05}
+dialog.sd{margin-top:8vh;width:min(660px,calc(100% - 2rem))}
+.sd-q{width:100%;font-family:var(--ui);font-size:17px;padding:.8rem .9rem;border:2px solid var(--navy);background:var(--paper);color:var(--text);border-radius:0}
+.sd-q:focus{outline:2px solid var(--gold);outline-offset:1px}
+.sr{list-style:none;margin:1rem 0 0;padding:0;max-height:52vh;overflow:auto}
+.sr li+li{border-top:1px solid var(--rule)}
+.sr button{display:block;width:100%;text-align:left;background:none;border:0;padding:.8rem .3rem;cursor:pointer;font-family:var(--ui);color:var(--text)}
+.sr button:hover,.sr button:focus-visible{background:var(--paper-2)}
+.sr b{display:block;font-size:15px;color:var(--navy-lift)}
+.sr small{display:block;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--crimson);margin-bottom:.1rem}
+.sr span{display:block;font-size:13.5px;color:var(--text-soft);line-height:1.5;margin-top:.15rem}
+.sr mark{background:var(--gold-soft);color:#241B05;padding:0 .1em}
+.sd-hint{font-family:var(--ui);font-size:13.5px;color:var(--text-soft);margin:1rem 0 0}
+dialog.pp{width:min(760px,calc(100% - 2rem))}
+.pp .vd-in{max-height:calc(100vh - 3rem);overflow:auto}
+.pp h4{font-family:var(--display);font-weight:500;letter-spacing:.02em;font-size:1.08rem;margin:1.4rem 0 .3rem}
+.pp p,.pp li{font-size:.95rem;max-width:none}
+.pp ul{margin:.3rem 0 .6rem;padding-left:1.2rem}
+.pp .pp-date{font-family:var(--ui);font-size:12.5px;color:var(--text-soft)}
+html[lang="en"] .pp-ru{display:none}
+html:not([lang="en"]) .pp-en{display:none}
+footer a{color:var(--gold-soft)}
+footer a:hover{color:#fff}
+</style>
+</head>
+<body>
+<noscript><style>#preloader{display:none}</style></noscript>
+<div id="preloader" role="status" aria-live="polite">
+  <span class="sch-loader lg" role="status" aria-label="Загрузка / Loading"><i class="bk"><b class="pg"></b><b class="pg"></b><b class="pg"></b></i></span>
+  <p class="pl-t">УНИВЕРСИТЕТ АДАМА</p>
+  <p class="pl-s">Загрузка… · Loading…</p>
+</div>
+
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="bar">
+      <nav>
+        <a href="#about" data-i18n="nav-about">Об университете</a>
+        <a href="#campus" data-i18n="nav-cam">Кампус</a>
+        <a href="#programmes" data-i18n="nav-prog">Программы</a>
+        <a href="#admission" data-i18n="nav-adm">Приём</a>
+        <a href="#location" data-i18n="nav-loc">Адрес</a>
+        <a href="#faq" data-i18n="nav-faq">Вопросы</a>
+        <a href="#contacts" data-i18n="nav-con">Контакты</a>
+        <a href="#careers" data-i18n="nav-car">Карьера</a>
+        <a href="#tenders" data-i18n="nav-ten">Тендеры</a>
+      </nav>
+      <div class="bar-right">
+        <button type="button" class="search-btn" id="openSearch" aria-label="Поиск по сайту" title="Поиск по сайту">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="6.5" cy="6.5" r="4.7"/><path d="M10 10l4.5 4.5"/></svg>
+        </button>
+        <div class="lang" role="group" aria-label="Язык / Language">
+          <button type="button" data-lang="ru" aria-pressed="true">РУС</button>
+          <button type="button" data-lang="en" aria-pressed="false">ENG</button>
+        </div>
+        <a class="enrol-btn" href="#admission" data-i18n="enrol-btn">Поступить</a>
+        <a class="verify-btn" id="openVerify" href="#certificates" data-i18n="verify-btn">Проверить сертификат</a>
+        <a class="signin" href="#portal" data-i18n="signin">Войти в портал</a>
+      </div>
+    </div>
+
+    <div class="plaque">
+      <!-- LOGO SLOT — upload logo.png to your repo. -->
+      <div class="logo-slot">
+        <img src="logo.png" alt="Герб университета" onerror="this.style.display='none'">
+      </div>
+
+      <div>
+        <p class="est" data-i18n="est">ОСНОВАН В 1971 ГОДУ · МОСКВА</p>
+        <h1 data-i18n="title">Университет<br>Адама</h1>
+        <p class="lede" data-i18n="lede">Бакалавриат, магистратура и аспирантура по пяти направлениям, в которых потребность в кадрах опережает подготовку.</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- PHOTO FRAME 1 — wide band: main-building.png -->
+<figure class="band">
+  <img src="main-building.png" alt="Главный корпус университета" loading="lazy" onerror="this.closest('figure').hidden=true">
+</figure>
+
+<main>
+
+<section id="about">
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow" data-i18n="eb-about">История</p>
+      <h2 data-i18n="h-about">Университет вырос из задачи, поставленной в 1971 году</h2>
+      <p data-i18n="p-about-1">Группа учёных, работавших в системе образования, предложила программу подготовки, которая отвечала бы не сегодняшнему спросу на специалистов, а тому, каким он станет через десять лет. Молодёжь выходила из школ в экономику, которая менялась быстрее, чем успевали меняться учебные планы.</p>
+      <p data-i18n="p-about-2">Университет открылся с четырьмя кафедрами и одним принципом: программа пересматривается каждые три года вместе с работодателями, а не раз в десятилетие. Этот принцип действует до сих пор и объясняет, почему сегодняшний набор направлений выглядит именно так.</p>
+    </div>
+    <div>
+      <dl class="facts">
+        <div><dt data-i18n="f1">Основан</dt><dd>1971</dd></div>
+        <div><dt data-i18n="f2">Направлений подготовки</dt><dd>5</dd></div>
+        <div><dt data-i18n="f3">Уровней образования</dt><dd>3</dd></div>
+        <div><dt data-i18n="f4">Студентов</dt><dd>6 400</dd></div>
+        <div><dt data-i18n="f5">Преподавателей</dt><dd>380</dd></div>
+        <div><dt data-i18n="f6">Пересмотр программ</dt><dd data-i18n="f6v">каждые 3 года</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section id="campus">
+  <div class="wrap">
+    <p class="eyebrow" data-i18n="eb-cam">Кампус</p>
+    <h2 data-i18n="h-cam">Где идут занятия</h2>
+    <div class="gallery">
+      <!-- PHOTO FRAMES 2–4: cyber-lab.png, library-reading-room.png, lecture-hall.png -->
+      <figure class="frame">
+        <img src="cyber-lab.png" alt="Лаборатория кибербезопасности" loading="lazy" onerror="this.closest('figure').hidden=true">
+        <figcaption data-i18n="cap1">Лаборатория кибербезопасности, корпус Б</figcaption>
+      </figure>
+      <figure class="frame">
+        <img src="library-reading-room.png" alt="Читальный зал библиотеки" loading="lazy" onerror="this.closest('figure').hidden=true">
+        <figcaption data-i18n="cap2">Читальный зал научной библиотеки</figcaption>
+      </figure>
+      <figure class="frame">
+        <img src="lecture-hall.png" alt="Поточная аудитория" loading="lazy" onerror="this.closest('figure').hidden=true">
+        <figcaption data-i18n="cap3">Поточная аудитория на 220 мест</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="military">
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow" data-i18n="eb-mil">Военная подготовка</p>
+      <h2 data-i18n="h-mil">Военный учебный центр при университете</h2>
+      <p data-i18n="p-mil-1">В университете действует военный учебный центр: студенты могут проходить военную подготовку параллельно с основной программой обучения, не прерывая учёбу.</p>
+      <p data-i18n="p-mil-2">Условия отбора, программы и порядок зачисления в центр уточняйте в приёмной комиссии.</p>
+      <a class="maplink" href="mailto:priem@adamuniversity.org" data-i18n="cta-mil">Задать вопрос о военном центре</a>
+    </div>
+    <div>
+      <!-- PHOTO FRAME: upload military-training-center.png next to index.html -->
+      <figure class="frame">
+        <img src="military-training-center.png" alt="Военный учебный центр" loading="lazy" onerror="this.closest('figure').hidden=true">
+        <figcaption data-i18n="cap-mil">Военный учебный центр при университете</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="sports">
+  <div class="wrap">
+    <p class="eyebrow" data-i18n="eb-spt">Спорт</p>
+    <h2 data-i18n="h-spt">Спорт в университете</h2>
+    <p data-i18n="p-spt">Студенты могут заниматься спортом в течение всего учебного года: в университете есть спортивные залы, площадки и секции для разных видов спорта.</p>
+    <!-- 360° PHOTO RING: upload sport-football.png, sport-basketball.png, sport-swimming.png, sport-gym.png, sport-athletics.png, sport-volleyball.png next to index.html -->
+    <div class="carousel" id="sportCarousel">
+      <div class="car-track">
+        <figure class="frame">
+          <img src="sport-football.png" alt="Футбольное поле" loading="lazy" onerror="this.closest('figure').hidden=true">
+          <figcaption data-i18n="scap1">Футбольное поле университета</figcaption>
+        </figure>
+        <figure class="frame">
+          <img src="sport-basketball.png" alt="Баскетбольный зал" loading="lazy" onerror="this.closest('figure').hidden=true">
+          <figcaption data-i18n="scap2">Баскетбольный зал</figcaption>
+        </figure>
+        <figure class="frame">
+          <img src="sport-swimming.png" alt="Бассейн" loading="lazy" onerror="this.closest('figure').hidden=true">
+          <figcaption data-i18n="scap3">Университетский бассейн</figcaption>
+        </figure>
+        <figure class="frame">
+          <img src="sport-gym.png" alt="Тренажёрный зал" loading="lazy" onerror="this.closest('figure').hidden=true">
+          <figcaption data-i18n="scap4">Тренажёрный зал</figcaption>
+        </figure>
+        <figure class="frame">
+          <img src="sport-athletics.png" alt="Лёгкая атлетика" loading="lazy" onerror="this.closest('figure').hidden=true">
+          <figcaption data-i18n="scap5">Беговые дорожки стадиона</figcaption>
+        </figure>
+        <figure class="frame">
+          <img src="sport-volleyball.png" alt="Волейбол" loading="lazy" onerror="this.closest('figure').hidden=true">
+          <figcaption data-i18n="scap6">Волейбольная площадка</figcaption>
+        </figure>
+      </div>
+      <button type="button" class="car-btn car-prev" aria-label="Назад / Previous">&#8249;</button>
+      <button type="button" class="car-btn car-next" aria-label="Вперёд / Next">&#8250;</button>
+    </div>
+  </div>
+</section>
+
+<section id="programmes">
+  <div class="wrap">
+    <p class="eyebrow" data-i18n="eb-prog">Направления подготовки</p>
+    <h2 data-i18n="h-prog">Пять направлений, три уровня</h2>
+    <div class="prog">
+      <div class="prog-row">
+        <figure class="frame"><img src="prog-management.png" alt="Управление проектами" loading="lazy" onerror="this.closest('figure').hidden=true"></figure>
+        <div><div class="code">38.03.02 / 38.04.02</div>
+        <h3 data-i18n="pr1">Управление проектами</h3>
+        <p data-i18n="pr1d">Планирование, бюджет и риски в инженерных и инфраструктурных проектах. Практика на реальных контрактах партнёров университета.</p></div>
+        <div class="levels"><span data-i18n="lv-b">Бакалавриат · 4 года</span><span data-i18n="lv-m">Магистратура · 2 года</span><span data-i18n="lv-a">Аспирантура · 3 года</span></div>
+      </div>
+      <div class="prog-row">
+        <figure class="frame"><img src="prog-data-science.png" alt="Наука о данных" loading="lazy" onerror="this.closest('figure').hidden=true"></figure>
+        <div><div class="code">01.03.02 / 01.04.02</div>
+        <h3 data-i18n="pr2">Наука о данных</h3>
+        <p data-i18n="pr2d">Статистика, машинное обучение и работа с большими массивами данных. Отдельный курс по интерпретации результатов для заказчика.</p></div>
+        <div class="levels"><span data-i18n="lv-b2">Бакалавриат · 4 года</span><span data-i18n="lv-m2">Магистратура · 2 года</span><span data-i18n="lv-a2">Аспирантура · 3 года</span></div>
+      </div>
+      <div class="prog-row">
+        <figure class="frame"><img src="prog-cybersecurity.png" alt="Кибербезопасность" loading="lazy" onerror="this.closest('figure').hidden=true"></figure>
+        <div><div class="code">10.03.01 / 10.04.01</div>
+        <h3 data-i18n="pr3">Кибербезопасность</h3>
+        <p data-i18n="pr3d">Защита сетей и промышленных систем управления, криптография, реагирование на инциденты. Учебный полигон с изолированным контуром.</p></div>
+        <div class="levels"><span data-i18n="lv-b3">Бакалавриат · 4 года</span><span data-i18n="lv-m3">Магистратура · 2 года</span><span data-i18n="lv-a3">Аспирантура · 3 года</span></div>
+      </div>
+      <div class="prog-row">
+        <figure class="frame"><img src="prog-environmental.png" alt="Экологический менеджмент" loading="lazy" onerror="this.closest('figure').hidden=true"></figure>
+        <div><div class="code">05.03.06 / 05.04.06</div>
+        <h3 data-i18n="pr4">Экологический менеджмент</h3>
+        <p data-i18n="pr4d">Оценка воздействия на среду, обращение с отходами, экологическая отчётность предприятий. Полевая практика два семестра.</p></div>
+        <div class="levels"><span data-i18n="lv-b4">Бакалавриат · 4 года</span><span data-i18n="lv-m4">Магистратура · 2 года</span><span data-i18n="lv-a4">Аспирантура · 3 года</span></div>
+      </div>
+      <div class="prog-row">
+        <figure class="frame"><img src="prog-ai-engineering.png" alt="Инженерия SI/ИИ" loading="lazy" onerror="this.closest('figure').hidden=true"></figure>
+        <div><div class="code">09.03.01 / 09.04.01</div>
+        <h3 data-i18n="pr5">Инженерия SI/ИИ</h3>
+        <p data-i18n="pr5d">Проектирование и внедрение систем машинного обучения: от обучающих данных до эксплуатации и контроля качества моделей.</p></div>
+        <div class="levels"><span data-i18n="lv-b5">Бакалавриат · 4 года</span><span data-i18n="lv-m5">Магистратура · 2 года</span><span data-i18n="lv-a5">Аспирантура · 4 года</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="online">
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow" data-i18n="eb-onl">Дистанционное обучение</p>
+      <h2 data-i18n="h-onl">Курсы можно пройти и онлайн</h2>
+      <p data-i18n="p-onl-1">Помимо очных занятий, учебные курсы доступны в дистанционном формате через студенческий портал: материалы, задания и общение с преподавателями собраны в одном месте.</p>
+      <p data-i18n="p-onl-2">Доступ к онлайн-курсам выдаётся студентам после зачисления вместе с учётной записью портала.</p>
+      <a class="maplink" href="#portal" data-i18n="cta-onl">Перейти к порталу</a>
+    </div>
+    <div>
+      <!-- PHOTO FRAME: upload login.png next to index.html -->
+      <figure class="frame">
+        <img src="login.png" alt="Вход в студенческий портал" loading="lazy" onerror="this.closest('figure').hidden=true">
+        <figcaption data-i18n="cap-onl">Студенческий портал: вход и онлайн-курсы</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="admission">
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow" data-i18n="eb-adm">Приём</p>
+      <h2 data-i18n="h-adm">Набор открывается 20 июня</h2>
+      <p data-i18n="p-adm-1">На бакалавриат принимаются результаты ЕГЭ по трём предметам, состав которых зависит от направления. На магистратуру — диплом бакалавра или специалиста и вступительное испытание по профилю.</p>
+      <p data-i18n="p-adm-2">В аспирантуру поступают по конкурсу исследовательских предложений. Научный руководитель подбирается до подачи документов, поэтому обращаться в приёмную комиссию стоит заранее.</p>
+    </div>
+    <div>
+      <dl class="facts">
+        <div><dt data-i18n="a1">Подача документов</dt><dd data-i18n="a1v">20 июня — 25 июля</dd></div>
+        <div><dt data-i18n="a2">Вступительные испытания</dt><dd data-i18n="a2v">26 июля — 10 августа</dd></div>
+        <div><dt data-i18n="a3">Списки зачисленных</dt><dd data-i18n="a3v">20 августа</dd></div>
+        <div><dt data-i18n="a4">Начало занятий</dt><dd data-i18n="a4v">1 сентября</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+
+<section id="apply">
+  <div class="wrap">
+    <p class="eyebrow" data-i18n="eb-app">Как поступить</p>
+    <h2 data-i18n="h-app">Что нужно сделать абитуриенту</h2>
+    <ol class="steps">
+      <li>
+        <h3 data-i18n="ap1t">Выберите направление и уровень</h3>
+        <p data-i18n="ap1">Пять направлений подготовки, каждое — на трёх уровнях: бакалавриат, магистратура, аспирантура.</p>
+      </li>
+      <li>
+        <h3 data-i18n="ap2t">Проверьте требования</h3>
+        <p data-i18n="ap2">Бакалавриат — результаты ЕГЭ по трём предметам. Магистратура — диплом и вступительное испытание. Аспирантура — исследовательское предложение и согласованный научный руководитель.</p>
+      </li>
+      <li>
+        <span class="when" data-i18n="ap3w">20 июня — 25 июля</span>
+        <h3 data-i18n="ap3t">Подайте документы</h3>
+        <p data-i18n="ap3">Список документов и порядок подачи уточните в приёмной комиссии заранее.</p>
+      </li>
+      <li>
+        <span class="when" data-i18n="ap4w">26 июля — 10 августа</span>
+        <h3 data-i18n="ap4t">Пройдите вступительные испытания</h3>
+        <p data-i18n="ap4">Испытания проводятся по профилю выбранной программы.</p>
+      </li>
+      <li>
+        <span class="when" data-i18n="ap5w">20 августа</span>
+        <h3 data-i18n="ap5t">Проверьте списки зачисленных</h3>
+        <p data-i18n="ap5">Результаты зачисления публикуются 20 августа.</p>
+      </li>
+      <li>
+        <span class="when" data-i18n="ap6w">1 сентября</span>
+        <h3 data-i18n="ap6t">Начните учёбу</h3>
+        <p data-i18n="ap6">После зачисления вы получите доступ к студенческому порталу и онлайн-курсам.</p>
+      </li>
+    </ol>
+    <div class="apply-cta">
+      <a class="maplink" href="mailto:priem@adamuniversity.org" data-i18n="cta-app">Написать в приёмную комиссию</a>
+      <span data-i18n="app-note">Иностранные абитуриенты: international@adamuniversity.org</span>
+    </div>
+  </div>
+</section>
+
+<section id="scholarships">
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow" data-i18n="eb-sch">Стипендии</p>
+      <h2 data-i18n="h-sch">Стипендии и финансовая поддержка</h2>
+      <p data-i18n="p-sch-1">Университет предлагает студентам стипендии и другие формы поддержки. Размеры выплат и условия их получения зависят от направления и уровня подготовки и уточняются в приёмной комиссии.</p>
+      <a class="maplink" href="mailto:priem@adamuniversity.org" data-i18n="cta-sch">Узнать о стипендиях</a>
+    </div>
+    <div>
+      <dl class="facts">
+        <div><dt data-i18n="s1">Академическая стипендия</dt><dd data-i18n="s1v">за успеваемость</dd></div>
+        <div><dt data-i18n="s2">Социальная поддержка</dt><dd data-i18n="s2v">по заявлению</dd></div>
+        <div><dt data-i18n="s3">Научная стипендия</dt><dd data-i18n="s3v">магистратура и аспирантура</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section id="location">
+  <div class="wrap">
+    <p class="eyebrow" data-i18n="eb-loc">Адрес</p>
+    <h2 data-i18n="h-loc">Как нас найти</h2>
+    <div class="loc">
+      <div>
+        <p class="addr" data-i18n="addr">Улица Большая Дмитровка, 1<br>Москва, 125009<br>Россия</p>
+        <dl class="metro">
+          <div><dt style="background:#4CAF50"></dt><dd data-i18n="m1">Театральная — 3 мин пешком</dd></div>
+          <div><dt style="background:#E53935"></dt><dd data-i18n="m2">Охотный Ряд — 5 мин пешком</dd></div>
+          <div><dt style="background:#7E57C2"></dt><dd data-i18n="m3">Кузнецкий Мост — 7 мин пешком</dd></div>
+        </dl>
+        <a class="maplink" href="https://maps.app.goo.gl/WeQFC7uNFVgyKbnn6" target="_blank" rel="noopener" data-i18n="maplink">Открыть на карте</a>
+      </div>
+
+      <div>
+      <div class="viewtabs" role="group">
+        <button type="button" data-view="plan" aria-pressed="true" data-i18n="v-plan">Карта</button>
+        <button type="button" data-view="sat" aria-pressed="false" data-i18n="v-sat">Спутник</button>
+      </div>
+      <figure class="map">
+        <iframe id="gmap" title="Google Maps" src="https://www.google.com/maps?q=%D0%91%D0%BE%D0%BB%D1%8C%D1%88%D0%B0%D1%8F+%D0%94%D0%BC%D0%B8%D1%82%D1%80%D0%BE%D0%B2%D0%BA%D0%B0+%D1%83%D0%BB%D0%B8%D1%86%D0%B0+1+%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0&amp;z=16&amp;output=embed" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="certificates">
+  <div class="wrap">
+    <p class="eyebrow" data-i18n="eb-cer">Сертификаты</p>
+    <h2 data-i18n="h-cer">Проверка документов об образовании</h2>
+    <p data-i18n="p-cer-1">Работодатель или организация может подтвердить подлинность диплома или сертификата, направив запрос в деканат. В запросе укажите регистрационный номер документа и фамилию выпускника.</p>
+    <p data-i18n="p-cer-2">Ответ направляется на адрес, с которого поступил запрос.</p>
+    <a class="maplink" href="mailto:dekanat@adamuniversity.org" data-i18n="cta-cer">Написать в деканат</a>
+  </div>
+</section>
+
+<section id="careers">
+  <div class="wrap">
+    <p class="eyebrow" data-i18n="eb-car">Карьера</p>
+    <h2 data-i18n="h-car">Работа в университете</h2>
+    <p data-i18n="p-car-1">Мы набираем преподавателей, исследователей и сотрудников административных служб. Актуальные вакансии публикуются в этом разделе.</p>
+    <p data-i18n="p-car-2">Чтобы откликнуться, отправьте резюме и короткое сопроводительное письмо в отдел кадров.</p>
+    <a class="maplink" href="mailto:hr@adamuniversity.org" data-i18n="cta-car">Написать в отдел кадров</a>
+  </div>
+</section>
+
+<section id="tenders">
+  <div class="wrap">
+    <p class="eyebrow" data-i18n="eb-ten">Тендеры</p>
+    <h2 data-i18n="h-ten">Закупки и тендеры</h2>
+    <p data-i18n="p-ten-1">Университет проводит закупки товаров, работ и услуг на конкурсной основе. Информация о действующих тендерах и условиях участия публикуется в этом разделе.</p>
+    <p data-i18n="p-ten-2">По вопросам участия обращайтесь по общему адресу университета.</p>
+    <a class="maplink" href="mailto:info@adamuniversity.org" data-i18n="cta-ten">Задать вопрос по тендерам</a>
+  </div>
+</section>
+
+<section id="portal">
+  <div class="wrap">
+    <p class="eyebrow" data-i18n="eb-por">Портал</p>
+    <h2 data-i18n="h-por">Портал для студентов и сотрудников</h2>
+    <p data-i18n="p-por-1">Портал предназначен для студентов и сотрудников университета. Через него студенты проходят онлайн-курсы. Доступ выдаётся после зачисления или оформления на работу.</p>
+    <p data-i18n="p-por-2">Если у вас возникли проблемы со входом, обратитесь в службу технической поддержки.</p>
+    <a class="maplink" href="mailto:it@adamuniversity.org" data-i18n="cta-por">Написать в техподдержку</a>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <p class="eyebrow" data-i18n="eb-faq">Вопросы и ответы</p>
+    <h2 data-i18n="h-faq">Частые вопросы</h2>
+    <div class="faq">
+      <h3 class="faq-g" data-i18n="g1">Приём</h3>
+      <details>
+        <summary data-i18n="fq1">Когда начинается приём документов?</summary>
+        <p data-i18n="fa1">Подача документов идёт с 20 июня по 25 июля. Вступительные испытания проходят с 26 июля по 10 августа, списки зачисленных публикуются 20 августа, а занятия начинаются 1 сентября. Эти даты указаны в разделе «Приём»; если они изменятся, актуальную информацию вам сообщит приёмная комиссия.</p>
+      </details>
+      <details>
+        <summary data-i18n="fq2">Что нужно для поступления в бакалавриат?</summary>
+        <p data-i18n="fa2">На бакалавриат принимаются результаты ЕГЭ по трём предметам. Набор предметов зависит от выбранного направления подготовки, поэтому перед подачей документов уточните его в приёмной комиссии по адресу priem@adamuniversity.org.</p>
+      </details>
+      <details>
+        <summary data-i18n="fq3">Как поступить в магистратуру?</summary>
+        <p data-i18n="fa3">Для поступления в магистратуру нужен диплом бакалавра или специалиста и вступительное испытание по профилю выбранной программы. Магистратура длится два года на всех направлениях.</p>
+      </details>
+      <details>
+        <summary data-i18n="fq4">Как устроен приём в аспирантуру?</summary>
+        <p data-i18n="fa4">В аспирантуру поступают по конкурсу исследовательских предложений. Научный руководитель подбирается до подачи документов, поэтому обращаться в приёмную комиссию стоит заранее. Вопросы о научной работе можно направить в научную часть: nauka@adamuniversity.org.</p>
+      </details>
+      <details>
+        <summary data-i18n="fq5">Я иностранный абитуриент. К кому обратиться?</summary>
+        <p data-i18n="fa5">Напишите в международный отдел: international@adamuniversity.org. Если вопрос касается сроков или вступительных испытаний, копию письма можно направить и в приёмную комиссию.</p>
+      </details>
+      <details>
+        <summary data-i18n="fq6">Где узнать о стоимости обучения, стипендиях и общежитии?</summary>
+        <p data-i18n="fa6">Эти сведения на сайте не публикуются. Задайте вопрос приёмной комиссии (priem@adamuniversity.org) или позвоните по телефону +7923587099; специалисты расскажут о действующих условиях.</p>
+      </details>
+      <h3 class="faq-g" data-i18n="g2">Программы</h3>
+      <details>
+        <summary data-i18n="fq7">Какие направления подготовки есть в университете?</summary>
+        <p data-i18n="fa7">Пять направлений: управление проектами, наука о данных, кибербезопасность, экологический менеджмент и инженерия SI/ИИ. По каждому из них можно учиться на трёх уровнях: бакалавриат, магистратура и аспирантура.</p>
+      </details>
+      <details>
+        <summary data-i18n="fq8">Сколько длится обучение?</summary>
+        <p data-i18n="fa8">Бакалавриат занимает четыре года, магистратура — два года, аспирантура — три года. Исключение — аспирантура по инженерии SI/ИИ: она длится четыре года.</p>
+      </details>
+      <details>
+        <summary data-i18n="fq9">Как часто обновляются программы?</summary>
+        <p data-i18n="fa9">Каждые три года. Университет пересматривает программы вместе с работодателями, а не раз в десять лет. Этот принцип действует с основания университета в 1971 году.</p>
+      </details>
+      <details>
+        <summary data-i18n="fq10">Есть ли практика?</summary>
+        <p data-i18n="fa10">Да, и она зависит от направления. Управление проектами включает практику на реальных контрактах партнёров университета, экологический менеджмент — полевую практику в течение двух семестров, а кибербезопасность — занятия на учебном полигоне с изолированным контуром.</p>
+      </details>
+      <h3 class="faq-g" data-i18n="g3">Сертификаты</h3>
+      <details>
+        <summary data-i18n="fq11">Как проверить подлинность сертификата?</summary>
+        <p data-i18n="fa11">Нажмите «Проверить сертификат» в верхней части страницы, введите идентификатор сертификата и фамилию его владельца и нажмите «Проверить». Проверка основана на технологии блокчейн: записи хранятся в неизменяемом реестре, и после записи их нельзя изменить или удалить.</p>
+      </details>
+      <details>
+        <summary data-i18n="fq12">Кто может проверить сертификат?</summary>
+        <p data-i18n="fa12">Любой работодатель или организация, которой известны идентификатор сертификата и фамилия владельца. Никакой регистрации для этого не требуется.</p>
+      </details>
+      <details>
+        <summary data-i18n="fq13">Что делать, если запись не найдена?</summary>
+        <p data-i18n="fa13">Сначала проверьте, правильно ли введены идентификатор и фамилия: ошибка в одном символе даст отрицательный результат. Если запись всё равно не находится, напишите в деканат: dekanat@adamuniversity.org.</p>
+      </details>
+      <h3 class="faq-g" data-i18n="g4">Кампус и контакты</h3>
+      <details>
+        <summary data-i18n="fq14">Где находится университет?</summary>
+        <p data-i18n="fa14">Улица Большая Дмитровка, дом 1, Москва, 125009. До станции «Театральная» три минуты пешком, до «Охотного Ряда» — пять минут, до «Кузнецкого Моста» — семь минут. Карту можно посмотреть в разделе «Адрес».</p>
+      </details>
+      <details>
+        <summary data-i18n="fq15">Что есть на кампусе?</summary>
+        <p data-i18n="fa15">В университете есть лаборатория кибербезопасности в корпусе Б, читальный зал научной библиотеки и поточная аудитория на 220 мест. По вопросам библиотеки пишите на library@adamuniversity.org.</p>
+      </details>
+      <details>
+        <summary data-i18n="fq16">Кому писать по моему вопросу?</summary>
+        <p data-i18n="fa16">Общие вопросы: info@adamuniversity.org. Приём: priem@adamuniversity.org. Ректорат: rector@adamuniversity.org. Деканат: dekanat@adamuniversity.org. Наука: nauka@adamuniversity.org. Международные вопросы: international@adamuniversity.org. Библиотека: library@adamuniversity.org. Кадры: hr@adamuniversity.org. Техподдержка: it@adamuniversity.org. Телефон: +7923587099.</p>
+      </details>
+      <h3 class="faq-g" data-i18n="g5">Работа, тендеры и портал</h3>
+      <details>
+        <summary data-i18n="fq17">Как откликнуться на вакансию?</summary>
+        <p data-i18n="fa17">Отправьте резюме и короткое сопроводительное письмо в отдел кадров: hr@adamuniversity.org. Университет нанимает преподавателей, исследователей и сотрудников административных служб; актуальные вакансии публикуются в разделе «Карьера».</p>
+      </details>
+      <details>
+        <summary data-i18n="fq18">Как участвовать в тендерах университета?</summary>
+        <p data-i18n="fa18">Закупки проводятся на конкурсной основе. Информация о действующих тендерах и условиях участия публикуется в разделе «Тендеры». С вопросами обращайтесь по адресу info@adamuniversity.org.</p>
+      </details>
+      <details>
+        <summary data-i18n="fq19">Как получить доступ к порталу?</summary>
+        <p data-i18n="fa19">Доступ выдаётся после зачисления или оформления на работу. Если вход не получается, напишите в техническую поддержку: it@adamuniversity.org.</p>
+      </details>
+      <h3 class="faq-g" data-i18n="g6">Конфиденциальность</h3>
+      <details>
+        <summary data-i18n="fq20">Что происходит с данными, которые я ввожу на сайте?</summary>
+        <p data-i18n="fa20">Идентификатор сертификата и фамилия используются только для проверки. Письма, которые вы отправляете университету, используются для ответа на ваш вопрос. Подробности — в <a href='#' class='open-privacy'>политике конфиденциальности</a>.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="contacts">
+  <div class="wrap">
+    <p class="eyebrow" data-i18n="eb-con">Контакты</p>
+    <h2 data-i18n="h-con">Куда писать</h2>
+    <dl class="contacts">
+      <div><dt data-i18n="c1">Общие вопросы</dt><dd><a href="mailto:info@adamuniversity.org">info@adamuniversity.org</a></dd></div>
+      <div><dt data-i18n="c2">Приёмная комиссия</dt><dd><a href="mailto:priem@adamuniversity.org">priem@adamuniversity.org</a></dd></div>
+      <div><dt data-i18n="c3">Ректорат</dt><dd><a href="mailto:rector@adamuniversity.org">rector@adamuniversity.org</a></dd></div>
+      <div><dt data-i18n="c4">Деканат</dt><dd><a href="mailto:dekanat@adamuniversity.org">dekanat@adamuniversity.org</a></dd></div>
+      <div><dt data-i18n="c5">Научная часть</dt><dd><a href="mailto:nauka@adamuniversity.org">nauka@adamuniversity.org</a></dd></div>
+      <div><dt data-i18n="c6">Международный отдел</dt><dd><a href="mailto:international@adamuniversity.org">international@adamuniversity.org</a></dd></div>
+      <div><dt data-i18n="c7">Библиотека</dt><dd><a href="mailto:library@adamuniversity.org">library@adamuniversity.org</a></dd></div>
+      <div><dt data-i18n="c8">Отдел кадров</dt><dd><a href="mailto:hr@adamuniversity.org">hr@adamuniversity.org</a></dd></div>
+      <div><dt data-i18n="c9">Техническая поддержка</dt><dd><a href="mailto:it@adamuniversity.org">it@adamuniversity.org</a></dd></div>
+      <div><dt data-i18n="c10">Телефон</dt><dd>+7923587099</dd></div>
+    </dl>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <strong>УНИВЕРСИТЕТ АДАМА · 1971</strong>
+      <p style="margin:.5rem 0 0" data-i18n="ft-1">© 1971 - 2026 Университет Адама. Все права защищены.</p>
+    </div>
+    <div>
+      <p style="margin:0 0 .6rem" data-i18n="ft-2">Москва · Основан в 1971 году</p>
+      <p style="margin:0"><a href="#" class="open-privacy" data-i18n="ft-pp">Политика конфиденциальности</a></p>
+    </div>
+    <!-- FOOTER IMAGE — upload footer.png (logos of organisations the university is a member of) next to index.html. -->
+    <p class="members"><img src="footer.png" alt="Членство университета / University memberships" loading="lazy" onerror="this.closest('p').hidden=true"></p>
+  </div>
+</footer>
+
+<dialog class="vd" id="verifyDialog" aria-labelledby="vd-title">
+  <div class="vd-in">
+    <button type="button" class="vd-x" id="vdClose" aria-label="Close">&times;</button>
+    <h3 id="vd-title" data-i18n="vd-t">Проверка сертификата</h3>
+    <div class="chain">
+      <svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="#EDD27C" stroke-width="2" aria-hidden="true"><rect x="2" y="12" width="10" height="10"/><rect x="22" y="12" width="10" height="10"/><path d="M12 17h10"/><path d="M7 12V5h20v7" stroke-dasharray="3 3"/></svg>
+      <div><strong data-i18n="vd-b1">Проверка на блокчейне</strong><span data-i18n="vd-b2">Каждый сертификат записан в неизменяемый реестр (блокчейн). После записи данные нельзя изменить или удалить.</span></div>
+    </div>
+    <label for="vd-id" data-i18n="vd-l1">Идентификатор сертификата</label>
+    <input type="text" id="vd-id" autocomplete="off" data-i18n-ph="vd-p1" placeholder="Например, AU-2024-000123">
+    <label for="vd-sn" data-i18n="vd-l2">Фамилия владельца сертификата</label>
+    <input type="text" id="vd-sn" autocomplete="off">
+    <button type="button" class="act" id="vdGo" data-i18n="vd-go">Проверить</button>
+    <div class="result" id="vdRes" hidden></div>
+  </div>
+</dialog>
+
+<dialog class="vd sd" id="searchDialog" aria-labelledby="sd-title">
+  <div class="vd-in">
+    <button type="button" class="vd-x" id="sdClose" aria-label="Close">&times;</button>
+    <h3 id="sd-title" data-i18n="sd-t">Поиск по сайту</h3>
+    <input type="text" class="sd-q" id="sd-q" autocomplete="off" data-i18n-ph="sd-p" placeholder="Введите слово или фразу">
+    <ul class="sr" id="sdRes"></ul>
+    <p class="sd-hint" id="sdHint"></p>
+  </div>
+</dialog>
+
+<dialog class="vd pp" id="ppDialog" aria-label="Privacy Policy">
+  <div class="vd-in">
+    <button type="button" class="vd-x" id="ppClose" aria-label="Close">&times;</button>
+    <div class="pp-ru">
+      <h3>Политика конфиденциальности</h3>
+      <p class="pp-date">Действует с 1 октября 2026 года</p>
+      <p>Настоящая политика объясняет, какие данные собирает сайт Университета Адама, зачем они нужны и как мы их защищаем. Мы обрабатываем персональные данные в соответствии с законодательством Российской Федерации, включая Федеральный закон № 152-ФЗ «О персональных данных».</p>
+      <h4>1. Кто отвечает за данные</h4>
+      <p>Оператор данных: Университет Адама, ул. Большая Дмитровка, д. 1, Москва, 125009. По вопросам конфиденциальности пишите на info@adamuniversity.org.</p>
+      <h4>2. Какие данные мы получаем</h4>
+      <ul>
+        <li><b>Проверка сертификата.</b> Идентификатор сертификата и фамилия, которые вы вводите в форме проверки.</li>
+        <li><b>Письма и обращения.</b> Имя, адрес электронной почты, телефон (если вы его указали) и содержание сообщения, которое вы направляете университету.</li>
+        <li><b>Данные сторонних сервисов.</b> Сайт загружает шрифты Google Fonts и карту Google Maps. При этом Google получает технические данные вашего устройства, например IP-адрес, в соответствии со своей политикой конфиденциальности.</li>
+      </ul>
+      <p>Сайт не использует собственные файлы cookie, аналитику и рекламные трекеры.</p>
+      <h4>3. Зачем мы используем данные</h4>
+      <ul>
+        <li>чтобы подтвердить или не подтвердить подлинность сертификата;</li>
+        <li>чтобы отвечать на ваши вопросы и обращения;</li>
+        <li>чтобы выполнять требования законодательства.</li>
+      </ul>
+      <p>Мы не продаём персональные данные и не используем их для рекламы.</p>
+      <h4>4. Проверка на блокчейне</h4>
+      <p>Записи в реестре блокчейн нельзя изменить или удалить после внесения. Поэтому университет стремится не размещать в реестре персональные данные и вносить только то, что необходимо для подтверждения сертификата. При проверке вы вводите идентификатор и фамилию, а результат формируется на основе записей реестра и данных университета.</p>
+      <h4>5. Кому мы передаём данные</h4>
+      <p>Мы передаём данные только поставщикам услуг, которые помогают работе сайта и проверки, и государственным органам, если этого требует закон. Все поставщики обязаны защищать данные.</p>
+      <h4>6. Сколько мы храним данные</h4>
+      <p>Мы храним данные не дольше, чем нужно для цели, ради которой они получены, либо столько, сколько требует закон.</p>
+      <h4>7. Как мы защищаем данные</h4>
+      <p>Мы применяем организационные и технические меры защиты от несанкционированного доступа, изменения и утраты данных. Ни один способ передачи данных через интернет не бывает абсолютно безопасным, поэтому мы не можем гарантировать полную защиту.</p>
+      <h4>8. Ваши права</h4>
+      <p>Вы вправе запросить доступ к своим данным, их уточнение, ограничение обработки или удаление, а также отозвать согласие на обработку. Удаление возможно в пределах, допускаемых законом и устройством реестра блокчейн. Если вы считаете, что ваши права нарушены, вы можете обратиться в Роскомнадзор.</p>
+      <h4>9. Изменения политики</h4>
+      <p>Мы можем обновлять эту политику. Новая версия публикуется на этой странице с указанием даты вступления в силу.</p>
+    </div>
+    <div class="pp-en">
+      <h3>Privacy Policy</h3>
+      <p class="pp-date">Effective 1 October 2026</p>
+      <p>This policy explains what data the Adam University website collects, why we need it and how we protect it. We process personal data in accordance with the laws of the Russian Federation, including Federal Law No. 152-FZ "On Personal Data".</p>
+      <h4>1. Who is responsible for your data</h4>
+      <p>Data controller: Adam University, 1 Bolshaya Dmitrovka Street, Moscow 125009. For privacy questions, write to info@adamuniversity.org.</p>
+      <h4>2. What data we receive</h4>
+      <ul>
+        <li><b>Certificate verification.</b> The certificate ID and surname you enter in the verification form.</li>
+        <li><b>Emails and enquiries.</b> Your name, email address, telephone number (if you provide it) and the content of the message you send to the university.</li>
+        <li><b>Third-party services.</b> The site loads Google Fonts and an embedded Google Map. Google receives technical data from your device, such as your IP address, under its own privacy policy.</li>
+      </ul>
+      <p>The site does not use its own cookies, analytics or advertising trackers.</p>
+      <h4>3. How we use data</h4>
+      <ul>
+        <li>to confirm, or fail to confirm, that a certificate is genuine;</li>
+        <li>to answer your questions and enquiries;</li>
+        <li>to comply with legal obligations.</li>
+      </ul>
+      <p>We do not sell personal data and we do not use it for advertising.</p>
+      <h4>4. Blockchain verification</h4>
+      <p>Records on a blockchain ledger cannot be altered or deleted once written. For this reason the university aims to keep personal details off the ledger and record only what is needed to confirm a certificate. When you verify, you enter an ID and surname, and the result is produced from ledger records and university data.</p>
+      <h4>5. Who we share data with</h4>
+      <p>We share data only with service providers that help run the site and the verification service, and with public authorities where the law requires it. All providers must protect the data.</p>
+      <h4>6. How long we keep data</h4>
+      <p>We keep data no longer than is needed for the purpose it was collected for, or as long as the law requires.</p>
+      <h4>7. How we protect data</h4>
+      <p>We use organisational and technical measures to protect data against unauthorised access, alteration and loss. No method of transmission over the internet is completely secure, so we cannot guarantee absolute protection.</p>
+      <h4>8. Your rights</h4>
+      <p>You may ask for access to your data, correction, restriction of processing or deletion, and you may withdraw consent to processing. Deletion is possible to the extent allowed by law and by the way the blockchain ledger works. If you believe your rights have been violated, you may contact Roskomnadzor, the Russian data protection authority.</p>
+      <h4>9. Changes to this policy</h4>
+      <p>We may update this policy. The new version will be published on this page with its effective date.</p>
+    </div>
+  </div>
+</dialog>
+
+<script>
+const EN={
+"nav-about":"About","nav-cam":"Campus","nav-prog":"Programmes","nav-adm":"Admissions","nav-con":"Contact",
+"signin":"Sign in","eb-cer":"Certificates","h-cer":"Verifying qualifications","p-cer-1":"An employer or organisation can confirm that a diploma or certificate is genuine by sending a request to the dean's office. Please include the document's registration number and the graduate's surname.","p-cer-2":"The reply is sent to the address the request came from.","cta-cer":"Email the dean's office",
+"eb-car":"Careers","h-car":"Working at the university","p-car-1":"We hire lecturers, researchers and administrative staff. Current vacancies are published in this section.","p-car-2":"To apply, send your CV and a short cover letter to the HR department.","cta-car":"Email HR",
+"eb-ten":"Tenders","h-ten":"Procurement and tenders","p-ten-1":"The university buys goods, works and services through competitive tenders. Details of current tenders and the terms of participation are published in this section.","p-ten-2":"For questions about taking part, use the university's general address.","cta-ten":"Ask about tenders",
+"eb-por":"Portal","h-por":"Portal for students and staff","p-por-1":"The portal is for students and staff of the university. Students can take online courses through it. Access is issued after enrolment or hiring.","p-por-2":"If you have trouble signing in, contact technical support.","cta-por":"Email technical support",
+"verify-btn":"Verify Certificate","nav-car":"Careers","nav-ten":"Tenders","enrol-btn":"Enrol","est":"ESTABLISHED 1971 · MOSCOW","title":"Adam's<br>University",
+"lede":"Bachelor's, master's and doctoral study in five fields where demand for skills runs ahead of the training available.",
+"eb-about":"History","h-about":"The university grew out of a problem set in 1971",
+"p-about-1":"A group of scholars working in the education system proposed a curriculum built not around the demand for specialists at the time, but around what that demand would look like a decade later. Young people were leaving school into an economy changing faster than syllabuses could follow.",
+"p-about-2":"The university opened with four departments and one principle: programmes are revised every three years together with employers, rather than once a decade. That principle still holds, and it explains why today's range of fields looks the way it does.",
+"f1":"Established","f2":"Fields of study","f3":"Levels of study","f4":"Students","f5":"Academic staff","f6":"Curriculum review","f6v":"every 3 years",
+"eb-cam":"Campus","h-cam":"Where teaching happens",
+"cap1":"Cyber security laboratory, Building B","cap2":"Reading room, research library","cap3":"Lecture theatre, 220 seats",
+"eb-prog":"Fields of study","h-prog":"Five fields, three levels",
+"pr1":"Project Management","pr1d":"Planning, budgeting and risk in engineering and infrastructure projects. Placements on live contracts with partner organisations.",
+"pr2":"Data Science","pr2d":"Statistics, machine learning and work with large datasets. A dedicated course on interpreting results for the client.",
+"pr3":"Cyber Security","pr3d":"Network and industrial control system defence, cryptography, incident response. Training range on an isolated network.",
+"pr4":"Environmental Management","pr4d":"Impact assessment, waste management and corporate environmental reporting. Two semesters of field practice.",
+"pr5":"SI/AI Engineering","pr5d":"Designing and deploying machine learning systems: from training data through to operation and model quality control.",
+"lv-b":"Bachelor's · 4 yrs","lv-m":"Master's · 2 yrs","lv-a":"Doctoral · 3 yrs",
+"lv-b2":"Bachelor's · 4 yrs","lv-m2":"Master's · 2 yrs","lv-a2":"Doctoral · 3 yrs",
+"lv-b3":"Bachelor's · 4 yrs","lv-m3":"Master's · 2 yrs","lv-a3":"Doctoral · 3 yrs",
+"lv-b4":"Bachelor's · 4 yrs","lv-m4":"Master's · 2 yrs","lv-a4":"Doctoral · 3 yrs",
+"lv-b5":"Bachelor's · 4 yrs","lv-m5":"Master's · 2 yrs","lv-a5":"Doctoral · 4 yrs",
+"eb-adm":"Admissions","h-adm":"Applications open 20 June",
+"p-adm-1":"Bachelor's admission is based on state examination results in three subjects, which vary by field. Master's admission requires a first degree and a subject entrance examination.",
+"p-adm-2":"Doctoral places are awarded by competition between research proposals. A supervisor is agreed before documents are submitted, so it is worth contacting the admissions office early.",
+"a1":"Applications","a1v":"20 June — 25 July","a2":"Entrance examinations","a2v":"26 July — 10 August","a3":"Offers published","a3v":"20 August","a4":"Term begins","a4v":"1 September",
+"nav-loc":"Address",
+"eb-loc":"Address","h-loc":"Finding us",
+"addr":"1 Bolshaya Dmitrovka Street<br>Moscow 125009<br>Russia",
+"m1":"Teatralnaya — 3 min walk","m2":"Okhotny Ryad — 5 min walk","m3":"Kuznetsky Most — 7 min walk",
+"maplink":"Open in maps",
+"v-plan":"Map","v-sat":"Satellite",
+"eb-con":"Contact","h-con":"Who to write to",
+"c1":"General enquiries","c2":"Admissions office","c3":"Rector's office","c4":"Faculty office","c5":"Research office","c6":"International office","c7":"Library","c8":"Human resources","c9":"IT support","c10":"Telephone",
+"nav-faq":"FAQs","eb-faq":"FAQ","h-faq":"Frequently asked questions",
+"vd-t":"Verify a certificate","vd-b1":"Blockchain verification","vd-b2":"Every certificate is recorded on an immutable blockchain ledger. Once written, records cannot be altered or deleted.","vd-l1":"Certificate ID","vd-p1":"e.g. AU-2024-000123","vd-l2":"Surname of certificate holder","vd-go":"Verify",
+"g1":"Admissions",
+"fq1":"When do applications open?","fa1":"Applications run from 20 June to 25 July. Entrance examinations are held from 26 July to 10 August, offers are published on 20 August and classes begin on 1 September. These dates are listed in the Admissions section; if they change, the admissions office will confirm the current ones.",
+"fq2":"What do I need to apply for a bachelor's degree?","fa2":"Bachelor's admission is based on state examination (EGE) results in three subjects. Which subjects count depends on the field you choose, so please check with the admissions office at priem@adamuniversity.org before you apply.",
+"fq3":"How do I apply for a master's degree?","fa3":"You need a bachelor's or specialist degree and a pass in the entrance examination for your chosen subject area. The master's programme lasts two years in every field.",
+"fq4":"How does doctoral admission work?","fa4":"Doctoral places are awarded by competition between research proposals. A supervisor is agreed before documents are submitted, so it is worth contacting the admissions office early. Questions about research can go to the research office at nauka@adamuniversity.org.",
+"fq5":"I am an international applicant. Who should I contact?","fa5":"Please write to the international office at international@adamuniversity.org. If your question is about dates or entrance examinations, you can copy the admissions office as well.",
+"fq6":"Where can I find out about fees, scholarships and accommodation?","fa6":"These details are not published on this website. Ask the admissions office (priem@adamuniversity.org) or call +7923587099, and they will tell you about the current terms.",
+"g2":"Programmes",
+"fq7":"Which fields of study do you offer?","fa7":"There are five fields: project management, data science, cybersecurity, environmental management and SI/AI engineering. Each can be studied at three levels: bachelor's, master's and doctoral.",
+"fq8":"How long do the programmes take?","fa8":"A bachelor's takes four years, a master's two years and a doctorate three years. The exception is the SI/AI engineering doctorate, which takes four years.",
+"fq9":"How often are the programmes updated?","fa9":"Every three years. The university reviews its programmes together with employers rather than once a decade. The principle has applied since the university was founded in 1971.",
+"fq10":"Is there practical training?","fa10":"Yes, and it depends on the field. Project management includes practice on real partner contracts, environmental management includes two semesters of fieldwork, and cybersecurity includes work on a training range with an isolated network.",
+"g3":"Certificates",
+"fq11":"How can I verify a certificate?","fa11":"Click Verify Certificate at the top of the page, enter the certificate ID and the holder's surname, then press Verify. Verification uses blockchain technology: records are kept on an immutable ledger and cannot be altered or deleted once written.",
+"fq12":"Who can verify a certificate?","fa12":"Any employer or organisation that has the certificate ID and the holder's surname. No registration is needed.",
+"fq13":"What if no record is found?","fa13":"First check that the ID and surname are typed correctly, because a single wrong character will return no match. If the record still cannot be found, write to the dean's office at dekanat@adamuniversity.org.",
+"g4":"Campus and contact",
+"fq14":"Where is the university?","fa14":"1 Bolshaya Dmitrovka Street, Moscow 125009. Teatralnaya is a 3 minute walk, Okhotny Ryad 5 minutes and Kuznetsky Most 7 minutes. You can see the map in the Address section.",
+"fq15":"What is on campus?","fa15":"Facilities include a cybersecurity laboratory in Building B, the reading room of the scientific library and a 220-seat lecture hall. For library questions, write to library@adamuniversity.org.",
+"fq16":"Who should I write to?","fa16":"General enquiries: info@adamuniversity.org. Admissions: priem@adamuniversity.org. Rector's office: rector@adamuniversity.org. Dean's office: dekanat@adamuniversity.org. Research: nauka@adamuniversity.org. International: international@adamuniversity.org. Library: library@adamuniversity.org. HR: hr@adamuniversity.org. IT support: it@adamuniversity.org. Telephone: +7923587099.",
+"g5":"Careers, tenders and portal",
+"fq17":"How do I apply for a job?","fa17":"Send your CV and a short cover letter to the HR department at hr@adamuniversity.org. The university hires lecturers, researchers and administrative staff, and current vacancies are published in the Careers section.",
+"fq18":"How can I take part in a university tender?","fa18":"Purchases are made through competitive tenders. Details of current tenders and the terms of participation are published in the Tenders section. Send questions to info@adamuniversity.org.",
+"fq19":"How do I get access to the portal?","fa19":"Access is issued after enrolment or hiring. If you cannot sign in, write to IT support at it@adamuniversity.org.",
+"g6":"Privacy",
+"fq20":"What happens to the data I enter on the website?","fa20":"The certificate ID and surname are used only to carry out the verification. Emails you send to the university are used to answer your question. Full details are in the <a href='#' class='open-privacy'>Privacy Policy</a>.",
+"ft-pp":"Privacy Policy",
+"eb-app":"How to apply","h-app":"What applicants need to do",
+"ap1t":"Choose a field and level","ap1":"Five fields of study, each at three levels: bachelor's, master's and doctoral.",
+"ap2t":"Check the requirements","ap2":"Bachelor's: state examination (EGE) results in three subjects. Master's: a degree diploma and an entrance test. Doctoral: a research proposal and an agreed supervisor.",
+"ap3w":"20 June – 25 July","ap3t":"Submit your documents","ap3":"Confirm the document list and how to submit with the admissions office in advance.",
+"ap4w":"26 July – 10 August","ap4t":"Take the entrance tests","ap4":"Tests are set according to the programme you chose.",
+"ap5w":"20 August","ap5t":"Check the enrolment lists","ap5":"Enrolment results are published on 20 August.",
+"ap6w":"1 September","ap6t":"Start your studies","ap6":"After enrolment you will receive access to the student portal and online courses.",
+"cta-app":"Write to the admissions office","app-note":"International applicants: international@adamuniversity.org",
+"cap-onl":"Student portal: sign-in and online courses",
+"eb-spt":"Sport","h-spt":"Sport at the university","p-spt":"Students can play sport throughout the academic year: the university has sports halls, grounds and clubs for a range of disciplines.",
+"scap1":"University football pitch","scap2":"Basketball hall","scap3":"University swimming pool","scap4":"Gym","scap5":"Stadium running track","scap6":"Volleyball court",
+"eb-mil":"Military training","h-mil":"Military Training Centre at the university","p-mil-1":"The university has a military training centre: students can complete military training alongside their degree programme without interrupting their studies.","p-mil-2":"Selection criteria, programmes and enrolment procedure can be confirmed with the admissions office.","cta-mil":"Ask about the military centre","cap-mil":"Military Training Centre at the university",
+"eb-onl":"Online study","h-onl":"Courses can also be completed online","p-onl-1":"In addition to on-campus classes, courses are available online through the student portal: materials, assignments and contact with lecturers are all in one place.","p-onl-2":"Access to online courses is issued to students after enrolment, together with their portal account.","cta-onl":"Go to the portal",
+"eb-sch":"Scholarships","h-sch":"Scholarships and financial support","p-sch-1":"The university offers students scholarships and other forms of support. Amounts and eligibility depend on the field and level of study and can be confirmed with the admissions office.","cta-sch":"Ask about scholarships","s1":"Academic scholarship","s1v":"for academic results","s2":"Social support","s2v":"on application","s3":"Research scholarship","s3v":"master's and doctoral",
+"sd-t":"Search the website","sd-p":"Type a word or phrase",
+"ft-1":"© 1971 - 2026 Adam University. All rights reserved.",
+"ft-2":"Moscow · Founded in 1971"
+};
+const RU={};
+document.querySelectorAll('[data-i18n]').forEach(el=>{RU[el.dataset.i18n]=el.innerHTML;});
+function setLang(l){
+  const dict=l==='en'?EN:RU;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const v=dict[el.dataset.i18n]; if(v!==undefined) el.innerHTML=v;
+  });
+  document.documentElement.lang=l==='en'?'en':'ru';
+  document.querySelectorAll('.lang button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.lang===l)));
+}
+document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+const GM='https://www.google.com/maps?q=%D0%91%D0%BE%D0%BB%D1%8C%D1%88%D0%B0%D1%8F+%D0%94%D0%BC%D0%B8%D1%82%D1%80%D0%BE%D0%B2%D0%BA%D0%B0+%D1%83%D0%BB%D0%B8%D1%86%D0%B0+1+%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0&z=16&output=embed';
+document.querySelectorAll('.viewtabs button').forEach(b=>{
+  b.addEventListener('click',()=>{
+    document.getElementById('gmap').src=GM+(b.dataset.view==='sat'?'&t=k':'');
+    document.querySelectorAll('.viewtabs button').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));
+  });
+});
+
+const VD=document.getElementById('verifyDialog');
+const vdT={ru:{need:'Введите идентификатор сертификата и фамилию владельца.',sent:'Запрос подготовлен: откроется почтовая программа для отправки в деканат.',sub:'Запрос на проверку сертификата'},
+           en:{need:'Please enter the certificate ID and the holder\'s surname.',sent:'Your request is ready: your email app will open to send it to the dean\'s office.',sub:'Certificate verification request'}};
+function vdLang(){return document.documentElement.lang==='en'?vdT.en:vdT.ru}
+function vdPh(){document.querySelectorAll('[data-i18n-ph]').forEach(el=>{if(!el.dataset.ruPh)el.dataset.ruPh=el.placeholder;el.placeholder=(document.documentElement.lang==='en'?EN[el.dataset.i18nPh]:el.dataset.ruPh)})}
+document.getElementById('openVerify').addEventListener('click',e=>{
+  e.preventDefault(); document.getElementById('vdRes').hidden=true; vdPh();
+  if(VD.showModal) VD.showModal(); else VD.setAttribute('open','');
+});
+document.getElementById('vdClose').addEventListener('click',()=>VD.close());
+VD.addEventListener('click',e=>{if(e.target===VD)VD.close()});
+document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',vdPh));
+/* ---- Backend connection ----
+   Put your verification endpoint here, e.g. 'https://api.adamuniversity.org/verify'.
+   Expected: POST JSON {certificateId, surname}  ->  JSON
+     {verified:true|false, holder, programme, enrolled, graduated, ledgerTx}
+   (all fields except "verified" are optional and shown only if present).
+   The endpoint must allow CORS from this site. Leave empty to fall back to an email request. */
+const VERIFY_API='';
+const vdL={ru:{ok:'Сертификат подтверждён',no:'Запись не найдена. Проверьте идентификатор и фамилию.',err:'Сервис проверки временно недоступен. Попробуйте позже.',wait:'Проверяем…',
+  holder:'Владелец',programme:'Программа',enrolled:'Год поступления',graduated:'Год выпуска',ledgerTx:'Запись в реестре'},
+  en:{ok:'Certificate verified',no:'No matching record found. Please check the ID and surname.',err:'The verification service is unavailable. Please try again later.',wait:'Checking…',
+  holder:'Holder',programme:'Programme',enrolled:'Enrolled',graduated:'Graduated',ledgerTx:'Ledger record'}};
+function vdShow(r,cls,title,rows){
+  r.hidden=false; r.className='result'+(cls?' '+cls:''); r.textContent='';
+  const t=document.createElement('strong'); t.textContent=title; r.appendChild(t);
+  (rows||[]).forEach(([k,v])=>{const d=document.createElement('div'); d.textContent=k+': '+v; r.appendChild(d)});
+}
+document.getElementById('vdGo').addEventListener('click',async()=>{
+  const id=document.getElementById('vd-id').value.trim(), sn=document.getElementById('vd-sn').value.trim();
+  const r=document.getElementById('vdRes'), t=vdLang(), L=document.documentElement.lang==='en'?vdL.en:vdL.ru;
+  if(!id||!sn){vdShow(r,'',t.need);return}
+  if(!VERIFY_API){
+    vdShow(r,'',t.sent);
+    location.href='mailto:dekanat@adamuniversity.org?subject='+encodeURIComponent(t.sub)+'&body='+encodeURIComponent('Certificate ID: '+id+'\nSurname: '+sn);
+    return;
+  }
+  vdShow(r,'',L.wait); r.insertAdjacentHTML('afterbegin',SCH(' sm'));
+  try{
+    const res=await fetch(VERIFY_API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({certificateId:id,surname:sn})});
+    if(res.status===404){vdShow(r,'bad',L.no);return}
+    if(!res.ok) throw new Error(res.status);
+    const d=await res.json();
+    if(d&&d.verified===true){
+      const rows=['holder','programme','enrolled','graduated','ledgerTx'].filter(k=>d[k]!==undefined&&d[k]!==null&&d[k]!=='').map(k=>[L[k],String(d[k])]);
+      vdShow(r,'ok',L.ok,rows);
+    } else vdShow(r,'bad',L.no);
+  }catch(e){vdShow(r,'bad',L.err)}
+});
+
+/* ---------- Site search ---------- */
+const SD=document.getElementById('searchDialog'), SQ=document.getElementById('sd-q'), SRES=document.getElementById('sdRes'), SH=document.getElementById('sdHint');
+const sT={ru:{hint:'Введите слово или фразу, чтобы найти раздел или ответ.',none:'Ничего не найдено. Попробуйте другое слово.',label:'Поиск по сайту',pp:'Политика конфиденциальности'},
+          en:{hint:'Type a word or phrase to find a section or an answer.',none:'No results. Try a different word.',label:'Search the website',pp:'Privacy Policy'}};
+const sLang=()=>document.documentElement.lang==='en'?sT.en:sT.ru;
+const esc=t=>t.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const norm=t=>t.toLowerCase().replace(/ё/g,'е');
+function buildIndex(){
+  const out=[], clean=t=>t.replace(/\s+/g,' ').trim();
+  document.querySelectorAll('section[id]').forEach(sec=>{
+    const h=sec.querySelector('h2'), title=h?clean(h.textContent):sec.id;
+    if(sec.id==='faq'){
+      sec.querySelectorAll('details').forEach(d=>out.push({title:clean(d.querySelector('summary').textContent),sec:title,el:d,id:'faq',text:clean(d.textContent),faq:true}));
+    } else out.push({title,sec:clean((sec.querySelector('.eyebrow')||{textContent:''}).textContent),el:sec,id:sec.id,text:clean(sec.textContent)});
+  });
+  const pp=document.querySelector(document.documentElement.lang==='en'?'.pp-en':'.pp-ru');
+  out.push({title:sLang().pp,sec:'',policy:true,text:clean(pp.textContent)});
+  return out;
+}
+function markUp(text,words){
+  const re=new RegExp('('+words.map(w=>w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('|')+')','gi');
+  return text.split(re).map((p,i)=>i%2?'<mark>'+esc(p)+'</mark>':esc(p)).join('');
+}
+function runSearch(){
+  const q=norm(SQ.value.trim()), words=q.split(/\s+/).filter(Boolean);
+  SRES.innerHTML=''; if(!words.length){SH.textContent=sLang().hint;return}
+  const res=[];
+  buildIndex().forEach(e=>{
+    const body=norm(e.text), ttl=norm(e.title);
+    if(!words.every(w=>body.includes(w)||ttl.includes(w))) return;
+    let score=0; words.forEach(w=>{score+=body.split(w).length-1; if(ttl.includes(w))score+=8});
+    const i=Math.max(0,body.indexOf(words[0])), from=Math.max(0,i-45);
+    let snip=e.text.slice(from,from+150); if(from>0)snip='…'+snip; if(from+150<e.text.length)snip+='…';
+    res.push({e,score,snip});
+  });
+  res.sort((a,b)=>b.score-a.score);
+  if(!res.length){SH.textContent=sLang().none;return}
+  SH.textContent='';
+  res.slice(0,8).forEach(({e,snip})=>{
+    const li=document.createElement('li'), b=document.createElement('button'); b.type='button';
+    b.innerHTML=(e.sec?'<small>'+esc(e.sec)+'</small>':'')+'<b>'+markUp(e.title,words)+'</b><span>'+markUp(snip,words)+'</span>';
+    b.addEventListener('click',()=>goTo(e)); li.appendChild(b); SRES.appendChild(li);
+  });
+}
+function goTo(e){
+  SD.close();
+  if(e.policy){openPP();return}
+  if(e.faq){location.hash='#faq'; e.el.open=true; setTimeout(()=>e.el.scrollIntoView({behavior:'smooth',block:'center'}),50); return}
+  location.hash='#'+e.id;
+}
+document.getElementById('openSearch').addEventListener('click',()=>{
+  vdPh(); SQ.value=''; SRES.innerHTML=''; SH.textContent=sLang().hint;
+  document.getElementById('openSearch').setAttribute('aria-label',sLang().label);
+  SD.showModal(); SQ.focus();
+});
+document.getElementById('sdClose').addEventListener('click',()=>SD.close());
+SD.addEventListener('click',e=>{if(e.target===SD)SD.close()});
+SQ.addEventListener('input',runSearch);
+SQ.addEventListener('keydown',e=>{if(e.key==='Enter'){const f=SRES.querySelector('button'); if(f)f.click()}});
+
+/* ---------- Privacy policy ---------- */
+const PPD=document.getElementById('ppDialog');
+function openPP(){PPD.showModal(); PPD.querySelector('.vd-in').scrollTop=0}
+document.addEventListener('click',e=>{const a=e.target.closest('.open-privacy'); if(a){e.preventDefault(); openPP()}});
+document.getElementById('ppClose').addEventListener('click',()=>PPD.close());
+PPD.addEventListener('click',e=>{if(e.target===PPD)PPD.close()});
+</script>
+<script>
+/* ---- School loader helpers ---- */
+function SCH(c){return '<span class="sch-loader%s" role="status" aria-label="Загрузка / Loading"><i class="bk"><b class="pg"></b><b class="pg"></b><b class="pg"></b></i></span>'.replace('%s',c||'')}
+(function(){
+  /* 1. Page-opening loader */
+  const pl=document.getElementById('preloader'), t0=performance.now(); let gone=false;
+  function hide(){
+    if(gone||!pl) return; gone=true;
+    setTimeout(()=>{pl.classList.add('done'); setTimeout(()=>pl.remove(),600)},Math.max(0,800-(performance.now()-t0)));
+  }
+  if(document.readyState==='complete') hide(); else addEventListener('load',hide);
+  setTimeout(hide,3500);
+
+  /* 2. Loader inside every photo frame until its image has loaded */
+  document.querySelectorAll('.frame img').forEach(img=>{
+    if(img.complete) return;
+    const fr=img.closest('.frame'), box=document.createElement('span');
+    box.className='fr-load'; box.innerHTML=SCH(' sm'); fr.insertBefore(box,fr.firstChild);
+    const done=()=>box.remove();
+    img.addEventListener('load',done); img.addEventListener('error',done);
+  });
+
+  /* 3. Loader over the map while it loads (including when switching Map / Satellite) */
+  const gm=document.getElementById('gmap');
+  if(gm){
+    const holder=gm.parentElement; let box=null;
+    const show=()=>{ if(box) return; box=document.createElement('span'); box.className='map-load'; box.innerHTML=SCH(' lg'); holder.appendChild(box); };
+    const clear=()=>{ if(box){box.remove(); box=null;} };
+    show(); gm.addEventListener('load',clear);
+    document.querySelectorAll('.viewtabs button').forEach(b=>b.addEventListener('click',()=>{show(); setTimeout(clear,8000)}));
+    setTimeout(clear,8000);
+  }
+})();
+</script>
+<script>
+/* 360° rotating photo ring */
+(function(){
+  const c=document.getElementById('sportCarousel'); if(!c) return;
+  const tr=c.querySelector('.car-track'), prev=c.querySelector('.car-prev'), next=c.querySelector('.car-next');
+  const still=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  const SPEED=14;            /* degrees per second, full turn ≈ 26 s */
+  let items=[], step=0, rot=0, target=null, paused=false, dragging=false, last=0;
+  function layout(){
+    items=[...tr.children].filter(f=>!f.hidden);
+    const n=items.length; c.hidden=false;
+    if(!n){c.hidden=true; return}
+    step=360/n;
+    const W=Math.round(Math.min(340,c.clientWidth*(c.clientWidth<600?0.66:0.34)));
+    const gap=24;
+    let R= n>=3 ? (W+gap)/2/Math.tan(Math.PI/n) : W*0.75;
+    R=Math.max(R,W*0.6);
+    items.forEach((f,i)=>{
+      f.style.width=W+'px'; f.style.marginLeft=(-W/2)+'px';
+      f.style.transform='rotateY('+(i*step)+'deg) translateZ('+R+'px)';
+    });
+    tr.dataset.r=R; tr.style.height=items[0].offsetHeight+'px';
+    paint();
+  }
+  function paint(){
+    const R=parseFloat(tr.dataset.r||0);
+    tr.style.transform='translateZ('+(-R)+'px) rotateY('+(-rot)+'deg)';
+    items.forEach((f,i)=>{
+      let a=((i*step-rot)%360+360)%360; if(a>180)a-=360;       /* 0 = facing the viewer */
+      f.style.opacity=(0.45+0.55*Math.cos(a*Math.PI/180)).toFixed(2);
+    });
+  }
+  function tick(t){
+    const dt=Math.min(0.1,(t-last)/1000||0); last=t;
+    if(target!==null){
+      const d=target-rot; rot+=d*Math.min(1,dt*6);
+      if(Math.abs(d)<0.15){rot=target; target=null}
+    } else if(!paused&&!dragging&&!still&&!document.hidden){ rot+=SPEED*dt; }
+    if(items.length) paint();
+    requestAnimationFrame(tick);
+  }
+  function nearest(dir){ const k=Math.round(rot/step)+dir; return k*step; }
+  next.addEventListener('click',()=>{target=nearest(1)});
+  prev.addEventListener('click',()=>{target=nearest(-1)});
+  c.addEventListener('mouseenter',()=>paused=true); c.addEventListener('mouseleave',()=>paused=false);
+  c.addEventListener('focusin',()=>paused=true); c.addEventListener('focusout',()=>paused=false);
+  /* drag / swipe to spin */
+  let sx=0, sr=0;
+  tr.addEventListener('pointerdown',e=>{dragging=true; target=null; sx=e.clientX; sr=rot; tr.classList.add('drag'); tr.setPointerCapture(e.pointerId)});
+  tr.addEventListener('pointermove',e=>{ if(dragging) rot=sr-(e.clientX-sx)*0.4 });
+  const end=()=>{dragging=false; tr.classList.remove('drag')};
+  tr.addEventListener('pointerup',end); tr.addEventListener('pointercancel',end);
+  new MutationObserver(layout).observe(tr,{attributes:true,attributeFilter:['hidden'],subtree:true});
+  addEventListener('resize',layout);
+  layout(); requestAnimationFrame(tick);
+})();
+</script>
+</body>
+</html>
